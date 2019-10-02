@@ -10,8 +10,25 @@ interface AppProps {
 }
 
 class _App extends React.Component<AppProps> {
+	onFetchTodos = (): void => {
+		this.props.fetchTodos();
+	};
+
+	renderTodos(): JSX.Element[] {
+		return this.props.todos.map(
+			(todo: Todo): JSX.Element => {
+				return <div key={todo.id}>{todo.title}</div>;
+			}
+		);
+	}
+
 	render() {
-		return <div>Hello world</div>;
+		return (
+			<div>
+				<button onClick={this.onFetchTodos}>Fetch</button>
+				{this.renderTodos()}
+			</div>
+		);
 	}
 }
 
