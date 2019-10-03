@@ -14,6 +14,11 @@ export interface FetchTodosAction {
 	payload: Todo[];
 }
 
+export interface DeleteTodoAction {
+	type: ActionTypes.DeleteTodo;
+	payload: number;
+}
+
 const url = 'https://jsonplaceholder.typicode.com/todos';
 
 export const fetchTodos = () => {
@@ -25,4 +30,8 @@ export const fetchTodos = () => {
 			payload: response.data
 		});
 	};
+};
+
+export const deleteTodos = (id: number): DeleteTodoAction => {
+	return { type: ActionTypes.DeleteTodo, payload: id };
 };

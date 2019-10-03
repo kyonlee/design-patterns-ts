@@ -14,10 +14,16 @@ class _App extends React.Component<AppProps> {
 		this.props.fetchTodos();
 	};
 
+	// onDeleteTodos = (): void => {};
+
 	renderTodos(): JSX.Element[] {
 		return this.props.todos.map(
 			(todo: Todo): JSX.Element => {
-				return <div key={todo.id}>{todo.title}</div>;
+				return (
+					<div key={todo.id} /* onClick={this.onDeleteTodos} */>
+						{todo.title}
+					</div>
+				);
 			}
 		);
 	}
