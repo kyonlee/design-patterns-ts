@@ -32,6 +32,6 @@ export const fetchTodos = () => {
 	};
 };
 
-export const deleteTodos = (id: number): DeleteTodoAction => {
+export const deleteTodo = (id: number): DeleteTodoAction => {
 	return { type: ActionTypes.DeleteTodo, payload: id };
 };
